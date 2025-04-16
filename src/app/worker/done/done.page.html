@@ -1,0 +1,58 @@
+<!-- task-completed.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Tâche accomplie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="completion-container">
+    <div class="checkmark-circle">
+      <ion-icon name="checkmark"></ion-icon>
+    </div>
+
+    <h2 class="congratulations">Félicitations</h2>
+
+    <div class="illustration">
+      <img src="assets/images/worker-finished.png" alt="Illustration de tâche accomplie">
+    </div>
+
+    <div class="stats-container">
+      <p class="client-name">
+        Vous avez travaillé pour<br>
+        <strong>{{ taskInfo.clientName }}</strong>
+      </p>
+
+      <p class="duration">
+        <strong>{{ taskInfo.duration.hours }} heures</strong> et <strong>{{ taskInfo.duration.minutes }} minutes</strong>
+      </p>
+
+      <p class="earnings">
+        Votre gain total est<br>
+        <strong>{{ taskInfo.earnings }}</strong>
+      </p>
+
+      <p class="rating-label">Note donnée</p>
+      <div class="rating">
+        <ion-icon *ngFor="let i of [1,2,3,4,5]"
+                  [name]="i <= taskInfo.rating ? 'star' : 'star-outline'"
+                  class="star-icon"></ion-icon>
+      </div>
+
+      <ion-button expand="block"
+                  class="confirm-button"
+                  (click)="confirm()">
+        Confirmer
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-worker></app-tab-worker>
+</ion-footer>

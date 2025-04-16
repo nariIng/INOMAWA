@@ -1,0 +1,277 @@
+/* plumber-dashboard.page.scss */
+ion-content {
+  --background: #f5f7fa;
+}
+
+/* Welcome Header */
+.welcome-header {
+  background: #e6f0fa;
+  padding: 20px 16px;
+  border-radius: 0 0 0 0;
+}
+
+.welcome-info {
+  display: flex;
+  align-items: center;
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    border: 2px solid #fff;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .user-info {
+    h2 {
+      margin: 0 0 2px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .user-name {
+      margin: 0 0 4px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #777;
+
+      ion-icon {
+        font-size: 14px;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+/* Service Requests */
+.service-requests {
+  padding: 16px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 16px;
+  display: flex;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  .service-image {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 70px;
+      object-fit: contain;
+    }
+  }
+
+  .service-details {
+    flex: 1;
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #003366;
+      }
+
+      .price {
+        font-weight: 600;
+        color: #333;
+      }
+    }
+
+    .service-location {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #666;
+
+      ion-icon {
+        font-size: 14px;
+        margin-right: 4px;
+      }
+    }
+
+    .client-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .client-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .client-name {
+        font-size: 13px;
+        color: #555;
+      }
+    }
+
+    .service-type {
+      margin-bottom: 12px;
+
+      span {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+
+      ion-button {
+        flex: 1;
+        height: 36px;
+        font-size: 13px;
+        margin: 0 4px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &[color="success"] {
+          --background: #4caf50;
+        }
+      }
+    }
+  }
+}
+
+/* Statistics Grid */
+.statistics-grid {
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  .stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    .stat-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .stat-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+
+      ion-icon {
+        font-size: 16px;
+        color: #999;
+      }
+    }
+  }
+}
+
+/* Reviews */
+.reviews-section {
+  padding: 0 16px 80px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: #333;
+  }
+
+  .review-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .reviewer-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+
+        ion-icon {
+          color: #ffc107;
+          margin-right: 4px;
+        }
+
+        span {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333;
+        }
+      }
+    }
+
+    .review-content {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+  }
+}

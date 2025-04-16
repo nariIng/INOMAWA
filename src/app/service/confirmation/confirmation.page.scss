@@ -1,0 +1,108 @@
+ion-header {
+  ion-toolbar {
+    --background: #fff9f9;
+    --color: #333;
+
+    ion-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+ion-content {
+  --background: #e6f0fa;
+}
+
+.confirmation-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.confirmation-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+    ion-icon {
+      font-size: 30px;
+      color: #666;
+    }
+  }
+
+  h2 {
+    font-size: 18px;
+    color: #666;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+.confirmation-image {
+  margin: 30px 0;
+  width: 100%;
+  max-width: 250px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.confirmation-message {
+  text-align: center;
+  margin-bottom: 40px;
+
+  p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+
+    strong {
+      color: #333;
+      font-weight: 600;
+      font-size: 16px;
+      display: block;
+      margin-top: 6px;
+    }
+
+    a {
+      color: #00569d;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+  }
+}
+
+.return-button {
+  margin-top: auto;
+  width: 100%;
+  padding-bottom: 20px;
+
+  ion-button {
+    --border-radius: 8px;
+    --border-color: #555;
+    --color: #555;
+    height: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+}

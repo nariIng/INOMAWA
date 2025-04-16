@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="logo-container">
+    <div class="logo">inomawa</div>
+  </div>
+
+  <div class="illustration-container">
+    <div class="greeting">Bonjour !</div>
+    <div class="illustration">
+      <img src="assets/images/index.png" alt="Illustration d'une personne arrosant une plante" />
+    </div>
+  </div>
+
+  <div class="text-instruction">
+    Choisissez un type de compte et<br>
+    Connectez-vous
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" class="service-button" (click)="hrefLoginUser()">Je veux un service</ion-button>
+    <ion-button expand="block" class="worker-button" (click)="hrefLoginWorker()">Je suis un travailleur</ion-button>
+  </div>
+</ion-content>

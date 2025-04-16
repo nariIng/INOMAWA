@@ -1,0 +1,324 @@
+ion-content.problem-page {
+  --background: #f5f7fa;
+  --padding-bottom: 70px; // Pour laisser de l'espace pour le footer
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  .back-button {
+    width: 40px;
+
+    ion-icon {
+      font-size: 22px;
+      color: #555;
+    }
+  }
+
+  .title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .spacer {
+    width: 40px;
+  }
+}
+
+.form-container {
+  padding: 15px;
+  background-color: #e8f1fd;
+  min-height: calc(100% - 56px);
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+}
+
+.description-textarea {
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+}
+
+.date-time-group {
+  display: flex;
+  gap: 15px;
+
+  .half {
+    flex: 1;
+  }
+}
+
+.date-picker, .time-picker {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0 15px;
+
+  ion-input {
+    flex: 1;
+    --padding-start: 0;
+    --padding-end: 10px;
+    font-size: 14px;
+  }
+
+  ion-icon {
+    font-size: 18px;
+    color: #555;
+  }
+}
+
+.date-picker {
+  border: 2px solid #005577;
+}
+
+.time-picker {
+  border: 1px solid #ccc;
+}
+
+.photos-container {
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .photo-item {
+    position: relative;
+    height: 120px;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .remove-photo {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ion-icon {
+        color: white;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .add-photo {
+    height: 120px;
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    ion-icon {
+      font-size: 28px;
+      color: #aaa;
+    }
+  }
+}
+
+.submit-button-container {
+  margin-top: 30px;
+
+  .submit-button {
+    --background: #005577;
+    --border-radius: 20px;
+    --box-shadow: none;
+    font-size: 15px;
+    height: 44px;
+  }
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  --background: #ffffff;
+  --border-style: solid;
+  --border-width: 1px 0 0 0;
+  --border-color: #eee;
+
+  ion-toolbar {
+    --padding-top: 0;
+    --padding-bottom: 0;
+
+    ion-buttons {
+      display: flex;
+      justify-content: center;
+
+      ion-button {
+        --padding-start: 0;
+        --padding-end: 0;
+        height: 50px;
+        width: 50px;
+
+        ion-icon {
+          font-size: 24px;
+          color: #888;
+        }
+      }
+    }
+  }
+}
+
+.calendar-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.month-year {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ion-color-primary);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 2px;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 2px auto;
+}
+
+.day:hover {
+  background-color: #f0f0f0;
+}
+
+.day.selected {
+  background-color: var(--ion-color-primary);
+  color: white;
+}
+
+.other-month {
+  color: #aaa;
+}
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  margin: 20px 0;
+}
+
+.clock-face {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-center {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #0078d7;
+}
+
+.hour-number, .minute-number {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transform-origin: center;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  font-weight: 500;
+}
+
+.hour-number:hover, .minute-number:hover {
+  background-color: #0078d7;
+  color: white;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.checkbox-container ion-label {
+  margin-left: 10px;
+}
+
+ion-header ion-toolbar {
+  --background: #d6ebff;
+}
+
+ion-content {
+  --background: #d6ebff;
+}
+
+ion-input {
+  cursor: pointer;
+}

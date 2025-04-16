@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">En travaux</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="work-container">
+    <div class="timer-container">
+      <div class="clock-icon">
+        <ion-icon name="time-outline"></ion-icon>
+      </div>
+      <div class="timer">{{ currentTime }}</div>
+    </div>
+
+    <div class="illustration-container">
+      <img src="assets/images/working.png" alt="Réparation en cours" class="repair-illustration">
+    </div>
+
+    <div class="action-buttons" style="justify-content: center">
+      <ion-button expand="block" fill="outline" color="danger" class="ignore-button" (click)="ignoreWork()">
+        Ignorer
+      </ion-button>
+      <ion-button expand="block" color="success" class="finish-button" (click)="finishWork()">
+        Terminer
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-worker></app-tab-worker>
+</ion-footer>

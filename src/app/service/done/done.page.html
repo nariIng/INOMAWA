@@ -1,0 +1,52 @@
+<!-- task-finished.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Quel soulagement, fini !</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="completion-container">
+    <div class="checkmark-circle">
+      <ion-icon name="checkmark"></ion-icon>
+    </div>
+
+    <div class="illustration">
+      <!-- Utiliser l'image PNG existante -->
+      <img src="assets/images/customer-finished.png" alt="Personne en yoga avec chien">
+    </div>
+
+    <div class="info-container">
+      <p class="completion-text">
+        Le travailleur a fini son travail.<br>
+        Votre coût total est de <strong>{{ taskInfo.cost }}</strong> pour<br>
+        <strong>{{ taskInfo.duration.hours }} heures</strong> et <strong>{{ taskInfo.duration.minutes }} minutes</strong>.
+      </p>
+
+      <p class="rating-label">
+        Donnez une note à {{ taskInfo.workerName }}
+      </p>
+
+      <div class="rating">
+        <ion-icon *ngFor="let i of [1,2,3,4,5]"
+                  [name]="i <= taskInfo.rating ? 'star' : 'star-outline'"
+                  class="star-icon"></ion-icon>
+      </div>
+
+      <ion-button expand="block"
+                  class="confirm-button"
+                  (click)="confirm()">
+        Confirmer
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

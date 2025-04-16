@@ -1,0 +1,88 @@
+<!-- plumber-profile.page.html -->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Détails du profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="profile-info">
+        <h2>{{ plumber.name }}</h2>
+        <h3>{{ plumber.price }} Ar/h</h3>
+        <p class="description">{{ plumber.description }}</p>
+      </div>
+      <div class="profile-image">
+        <img src="{{plumber.image}}" alt="Plumber profile">
+      </div>
+    </div>
+
+    <div class="stats-container">
+      <div class="stat-item">
+        <span class="label">Effectués</span>
+        <span class="value">{{ plumber.completedJobs }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Notes</span>
+        <span class="value">{{ plumber.rating }}</span>
+      </div>
+      <div class="stat-item">
+        <ion-icon name="bookmark"></ion-icon>
+      </div>
+      <div class="stat-item">
+        <ion-button fill="clear" (click)="shareProfile()">
+          <ion-icon name="share-social-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <h3>Projets</h3>
+    <ion-button fill="clear">
+      <ion-icon name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-item" *ngFor="let project of plumber.projects">
+      <img [src]="project.image" alt="Project image">
+    </div>
+  </div>
+
+  <div class="reviews-section">
+    <h3>Avis</h3>
+
+    <div class="review-item" *ngFor="let review of plumber.reviews">
+      <div class="review-header">
+        <h4>{{ review.name }}</h4>
+        <div class="rating">
+          <ion-icon name="star" class="star-filled"></ion-icon>
+          <span>{{ review.rating }}</span>
+        </div>
+      </div>
+      <p>{{ review.comment }}</p>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <ion-button fill="outline" expand="block" (click)="sendMessage()">
+      <ion-icon name="chatbubble-outline" slot="start"></ion-icon>
+      Message
+    </ion-button>
+    <ion-button expand="block" (click)="makeReservation()">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      Réserver
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

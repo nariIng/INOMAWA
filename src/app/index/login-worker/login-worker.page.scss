@@ -1,0 +1,118 @@
+ion-content.login-page {
+  --background: #c9e3ff;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 16px;
+
+  ion-icon {
+    margin-right: 8px;
+  }
+}
+
+.illustration-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .sailor-image {
+    width: 300px;
+    height: auto;
+  }
+}
+
+.form-container {
+  padding: 0 10px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.field-label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.custom-input {
+  --background: #ffffff;
+  --color: #333;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --border-radius: 5px;
+  --border-style: solid;
+  --border-width: 1px;
+  --border-color: #ddd;
+}
+
+.password-field {
+  position: relative;
+
+  .password-icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 20px;
+  }
+}
+
+.remember-me {
+  margin-bottom: 10px;
+
+  ion-checkbox {
+    --size: 18px;
+    --checkbox-background-checked: #005577;
+    --border-color: #aaa;
+    --border-color-checked: #005577;
+    font-size: 14px;
+  }
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+
+  a {
+    color: #005577;
+    text-decoration: none;
+    font-size: 14px;
+  }
+}
+
+.login-button {
+  --background: #005577;
+  --background-hover: #00425e;
+  --border-radius: 5px;
+  --color: white;
+  height: 44px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+
+  a {
+    display: block;
+    color: #005577;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+}

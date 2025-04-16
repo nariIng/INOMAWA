@@ -1,0 +1,58 @@
+<!-- signup.page.html -->
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Quel plaisir de vous accueillir !</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="welcome-container">
+    <div class="illustration-container">
+      <img src="assets/images/inscription.png" alt="Jardinier" class="gardener-illustration">
+    </div>
+    <form>
+      <ion-item>
+        <ion-label position="stacked">Prénom</ion-label>
+        <ion-input formControlName="firstName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nom</ion-label>
+        <ion-input formControlName="lastName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Mot de passe</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="au moins 8 caractères"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">confirmer votre mot de passe</ion-label>
+        <ion-input formControlName="confirmPassword" type="password" placeholder="au moins 8 caractères"></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        color="primary"
+        class="signup-button"
+        (click)="onSubmit()"
+        >
+        Créer un compte
+      </ion-button>
+
+      <div class="login-link">
+        <p>Avez vous déjà un compte ?</p>
+        <ion-button fill="clear" (click)="goToLogin()" color="primary">Se connecter</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

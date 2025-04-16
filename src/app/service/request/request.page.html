@@ -1,0 +1,169 @@
+<ion-content class="problem-page">
+  <div class="header">
+    <ion-buttons class="back-button">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="title">{{ category.name }}</div>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="form-container">
+    <div class="form-group">
+      <label>Décrivez votre problème</label>
+      <ion-textarea
+        placeholder="ex. J'ai une fuite d'eau dans la cour"
+        rows="5"
+        class="description-textarea"
+        [(ngModel)]="problemDescription"
+      ></ion-textarea>
+    </div>
+
+    <div class="date-time-group">
+      <div class="form-group half">
+        <label>Date</label>
+        <div class="date-picker" (click)="openCalendar()">
+          <ion-input
+            readonly
+            [value]="formatDate(selectedDate)"
+          ></ion-input>
+          <ion-icon name="calendar-outline"></ion-icon>
+        </div>
+      </div>
+
+      <div class="form-group half">
+        <label>Heure</label>
+        <div class="time-picker" (click)="openTimeModal()">
+          <ion-item>
+            <ion-input [(ngModel)]="displayTime" readonly ></ion-input>
+            <ion-icon name="time-outline"></ion-icon>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Attachez des photos</label>
+      <div class="photos-container">
+        <div class="photo-grid">
+          <ng-container *ngIf="selectedPhotos.length > 0">
+            <div class="photo-item" *ngFor="let photo of selectedPhotos; let i = index">
+              <img [src]="photo" alt="Photo du problème">
+              <div class="remove-photo" (click)="removePhoto(i)">
+                <ion-icon name="close-circle"></ion-icon>
+              </div>
+            </div>
+          </ng-container>
+          <div class="add-photo" (click)="addPhoto()">
+            <ion-icon name="add"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-button-container">
+      <ion-button expand="block" class="submit-button" (click)="searchWorker()">
+        Chercher un travailleur accessible
+        <ion-icon name="arrow-forward" slot="end"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-modal #timeModal [isOpen]="isTimeModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ selectedHour }}:{{ selectedMinute }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirmTime()">FERMER</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="clock-container">
+          <!-- Affichage du cadran des heures -->
+          <div class="clock-face" *ngIf="showHours">
+            <div class="clock-center"></div>
+            <div class="hour-number" *ngFor="let hour of hours"
+                 [style.transform]="getHourPosition(hour)"
+                 (click)="selectHour(hour)">
+              {{ hour }}
+            </div>
+          </div>
+
+          <!-- Affichage du cadran des minutes -->
+          <div class="clock-face" *ngIf="!showHours">
+            <div class="clock-center"></div>
+            <div class="minute-number" *ngFor="let minute of visibleMinutes"
+                 [style.transform]="getMinutePosition(minute)"
+                 (click)="selectMinute(minute)">
+              {{ minute }}
+            </div>
+          </div>
+        </div>
+
+        <div class="checkbox-container">
+          <ion-checkbox [(ngModel)]="anyTime" (ionChange)="handleAnyTimeChange()"></ion-checkbox>
+          <ion-label>N'importe quelle heure</ion-label>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal #calendarModal
+             [initialBreakpoint]="0.5"
+             [breakpoints]="[0, 0.5, 1]"
+             [backdropDismiss]="true"
+             [cssClass]="'calendar-modal'">
+    <ng-template>
+      <div class="calendar-container">
+        <!-- En-tête du calendrier avec les contrôles de navigation -->
+        <div class="calendar-header">
+          <ion-button fill="clear" (click)="previousMonth()">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ion-button>
+          <div class="month-year">{{ currentMonthYear }}</div>
+          <ion-button fill="clear" (click)="nextMonth()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+
+        <!-- Jours de la semaine -->
+        <div class="calendar-weekdays">
+          <div class="weekday" *ngFor="let day of weekdays">{{ day }}</div>
+        </div>
+
+        <!-- Jours du mois -->
+        <div class="calendar-days">
+          <!-- Jours du mois précédent -->
+          <div
+            class="day other-month"
+            *ngFor="let day of previousMonthDays">
+            {{ day }}
+          </div>
+
+          <!-- Jours du mois courant -->
+          <div
+            class="day"
+            *ngFor="let day of currentMonthDays"
+            [class.selected]="isSelectedDay(day)"
+            (click)="selectDay(day)">
+            {{ day }}
+          </div>
+
+          <!-- Jours du mois suivant -->
+          <div
+            class="day other-month"
+            *ngFor="let day of nextMonthDays">
+            {{ day }}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

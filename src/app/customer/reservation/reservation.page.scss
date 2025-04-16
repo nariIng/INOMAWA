@@ -1,0 +1,202 @@
+/* home.page.scss */
+ion-content {
+  --background: #f5f7fa;
+}
+
+.custom-searchbar {
+  --border-radius: 8px;
+  --background: #ffffff;
+  margin: 8px 16px;
+}
+
+.reservations-container {
+  margin: 10px;
+}
+
+.reservation-card {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #ffcccc;
+  color: #000000;
+}
+
+.reservation-header.en-cours {
+  background-color: #ffcccc;
+}
+
+.reservation-header.attente {
+  background-color: #e6f0ff;
+}
+
+.reservation-header.termine {
+  background-color: #d4edda;
+}
+
+.reservation-title {
+  font-weight: 600;
+}
+
+.reservation-status {
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.reservation-status.attente {
+  background: #3880ff;
+}
+
+.reservation-status.termine {
+  background: #2dd36f;
+}
+
+.reservation-content {
+  display: flex;
+  padding: 12px 16px;
+}
+
+.reservation-info {
+  flex: 1;
+}
+
+.time-info {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.price {
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.technician {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+ion-avatar {
+  width: 32px;
+  height: 32px;
+}
+
+.technician-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  color: #ffc409;
+  gap: 4px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.reservation-image {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.reservation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ignore-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  padding: 8px 16px;
+  color: #ff3b30;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reschedule {
+  margin-top: 12px;
+}
+
+.filter-container {
+  padding: 10px 16px;
+  background: #e6f0fa;
+
+  .filter-item {
+    --background: #ffffff;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --inner-padding-end: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    ion-select {
+      width: 100%;
+      max-width: 100%;
+      --placeholder-color: #777;
+      --placeholder-opacity: 1;
+      font-size: 14px;
+    }
+
+    ion-icon {
+      font-size: 18px;
+      color: #777;
+      margin: 0 10px;
+    }
+  }
+}
+
+ion-tabs {
+  ion-tab-button {
+    --color: #666;
+    --color-selected: #3880ff;
+  }
+}
+
+ion-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 10px;
+  padding: 2px 4px;
+}

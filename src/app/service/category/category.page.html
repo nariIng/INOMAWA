@@ -1,0 +1,38 @@
+<ion-content class="services-page">
+  <div class="header">
+    <div class="welcome-info" (click)="navigateToProfile()">
+      <div class="user-avatar">
+        <img src="assets/images/avatar/marie-rasoa.jpg" alt="Photo de profil">
+      </div>
+      <div class="user-details">
+        <h2>Bienvenue !</h2>
+        <p class="user-name">Marie Rasoa</p>
+        <p class="user-address">
+          <ion-icon name="location-outline"></ion-icon>
+          Lot ITZ 46 Bemasoandro Itaosy
+        </p>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <ion-searchbar placeholder="Quel service cherchez-vous?" [(ngModel)]="searchName" (ionInput)="filterList($event)" mode="ios"></ion-searchbar>
+    </div>
+  </div>
+
+  <div class="categories-section">
+    <h3>Catégories</h3>
+
+    <div class="categories-grid">
+      <div class="category-card" *ngFor="let category of categoriesFiltered" (click)="askService(category)">
+        <div class="category-image">
+          <img [src]="'assets/images/services/' + category.image" [alt]="category.name">
+        </div>
+        <div class="category-name">{{category.name}}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

@@ -1,0 +1,40 @@
+<ion-content class="login-page ion-padding">
+  <div class="back-button">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    <span>Quel plaisir de vous revoir !</span>
+  </div>
+
+  <div class="illustration-container">
+    <img src="assets/images/sailor.png" alt="Illustration d'un marin" class="sailor-image">
+  </div>
+
+  <div class="form-container">
+    <div class="form-field">
+      <div class="field-label">Email</div>
+      <ion-input type="email" [(ngModel)]="email" placeholder="email" class="custom-input"></ion-input>
+    </div>
+
+    <div class="form-field">
+      <div class="field-label">Mot de passe</div>
+      <div class="password-field">
+        <ion-input [(ngModel)]="password" [type]="showPassword ? 'text' : 'password'" placeholder="au moins 8 caractère" class="custom-input"></ion-input>
+        <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" (click)="togglePasswordVisibility()" class="password-icon"></ion-icon>
+      </div>
+    </div>
+
+    <div class="remember-me">
+      <ion-checkbox labelPlacement="end">Se souvenir de moi</ion-checkbox>
+    </div>
+
+    <div class="forgot-password">
+      <a href="#">Mot de passe oublié?</a>
+    </div>
+
+    <ion-button expand="block" class="login-button" (click)="loginWorker()">Se connecter</ion-button>
+
+    <div class="signup-link">
+      <div>Pas encore de compte ?</div>
+      <a (click)="goToInscription()">Créer un compte</a>
+    </div>
+  </div>
+</ion-content>

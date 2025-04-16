@@ -1,0 +1,113 @@
+/* task-completed.page.scss */
+ion-content {
+  --background: #e6f3ff;
+}
+
+.completion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.checkmark-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #6a6a6a;
+  margin-bottom: 10px;
+
+  ion-icon {
+    font-size: 28px;
+    color: #6a6a6a;
+  }
+}
+
+.congratulations {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 200px;
+  margin: 20px 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.stats-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.client-name, .duration, .earnings {
+  font-size: 16px;
+  margin: 5px 0;
+  line-height: 1.5;
+  color: #333;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.rating-label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.rating {
+  display: flex;
+  margin-bottom: 25px;
+
+  .star-icon {
+    font-size: 22px;
+    color: #ffc107;
+    margin: 0 2px;
+  }
+}
+
+.confirm-button {
+  --background: #f0f0f0;
+  --color: #333;
+  --border-radius: 6px;
+  --box-shadow: none;
+  width: 80%;
+  margin-top: 10px;
+  text-transform: none;
+  height: 40px;
+}
+
+ion-footer ion-toolbar {
+  --background: white;
+}
+
+ion-tab-bar {
+  --background: white;
+  --border: none;
+}
+
+ion-tab-button {
+  --color: #6a6a6a;
+  --color-selected: #3880ff;
+}
+
+ion-badge {
+  --background: #3880ff;
+  --color: white;
+  font-size: 10px;
+}

@@ -1,0 +1,140 @@
+<!-- home.page.html -->
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title class="ion-text-center">Réservation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="filter-container">
+    <ion-item lines="none" class="filter-item">
+      <ion-select [(ngModel)]="filterValue" interface="popover" placeholder="Select One" (ionChange)="filterList()">
+        <ion-select-option value="Tout">Tout</ion-select-option>
+        <ion-select-option value="en cours">En cours</ion-select-option>
+        <ion-select-option value="attente">En attente</ion-select-option>
+        <ion-select-option value="terminé">Terminé</ion-select-option>
+      </ion-select>
+      <ion-icon name="search-outline" slot="end"></ion-icon>
+    </ion-item>
+  </div>
+  <div class="reservations-container">
+    <!-- Reservation en cours -->
+    <div class="reservation-card" *ngFor="let reservation of reservationFiltered">
+      <div class="reservation-header" [ngClass]="reservation.statusClass" (click)="workDone(reservation)">
+        <div class="reservation-title">{{ reservation.title }}</div>
+        <div class="reservation-status" *ngIf="reservation.status === 'en cours'">
+          <span>en cours</span>
+        </div>
+        <div class="reservation-status attente" *ngIf="reservation.status === 'attente'">
+          <span>attente</span>
+        </div>
+        <div class="reservation-status termine" *ngIf="reservation.status === 'terminé'">
+          <span>terminé</span>
+        </div>
+      </div>
+
+      <div class="reservation-content">
+        <div class="reservation-info">
+          <!-- Pour reservation en cours -->
+          <ng-container *ngIf="reservation.status === 'en cours'">
+            <div class="time-info">
+              <div>Début: {{ reservation.debut }}</div>
+              <div>Date: {{ reservation.date }}</div>
+              <div>Fin: {{ reservation.fin }}</div>
+            </div>
+            <div class="price">{{ reservation.price }}</div>
+            <div class="location">
+              <ion-icon name="location-outline"></ion-icon>
+              {{ reservation.location }}
+            </div>
+            <div class="technician">
+              <ion-avatar>
+                <img src="{{reservation.technicianImage}}">
+              </ion-avatar>
+              <div>{{ reservation.technician }}</div>
+            </div>
+          </ng-container>
+
+          <!-- Pour reservation en attente -->
+          <ng-container *ngIf="reservation.status === 'attente'">
+            <div class="time-info">
+              <div>Date: {{ reservation.date }}</div>
+              <div>Heure: {{ reservation.heure }}</div>
+            </div>
+            <div class="technician-info">
+              <div class="technician">
+                <ion-avatar>
+                  <img src="{{reservation.technicianImage}}">
+                </ion-avatar>
+                <div>{{ reservation.technician }}</div>
+                <div class="price">{{ reservation.price }}</div>
+              </div>
+              <div class="rating">
+                <div>Détails</div>
+                <div class="stars">
+                  <ion-icon name="star" color="warning"></ion-icon>
+                  {{ reservation.rating }}
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <ion-button color="primary" (click)="callTechnician(reservation)">
+                <ion-icon name="call"></ion-icon>
+                Appeler
+              </ion-button>
+              <ion-button color="light" (click)="messageTechnician(reservation)">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+                Message
+              </ion-button>
+            </div>
+          </ng-container>
+
+          <!-- Pour reservation terminée -->
+          <ng-container *ngIf="reservation.status === 'terminé'">
+            <div class="time-info" (click)="workDone(reservation)">
+              <div>Date: {{ reservation.date }}</div>
+              <div>Heure: {{ reservation.heure }}</div>
+            </div>
+            <div class="technician-info" (click)="workDone(reservation)">
+              <div class="technician">
+                <ion-avatar>
+                  <img src="{{reservation.technicianImage}}">
+                </ion-avatar>
+                <div>{{ reservation.technician }}</div>
+              </div>
+              <div class="rating">
+                <div class="stars">
+                  <ion-icon name="star" color="warning"></ion-icon>
+                  {{ reservation.rating }}
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <ion-button color="primary" (click)="callTechnician(reservation)">
+                <ion-icon name="call"></ion-icon>
+                Appeler
+              </ion-button>
+              <ion-button color="light" (click)="messageTechnician(reservation)">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+                Message
+                <ion-badge *ngIf="reservation.hasMessages" color="primary">{{ reservation.messageCount }}</ion-badge>
+              </ion-button>
+            </div>
+          </ng-container>
+        </div>
+        <div class="reservation-image">
+          <img [src]="reservation.image" alt="{{ reservation.title }}">
+        </div>
+      </div>
+
+      <div class="ignore-button" (click)="ignoreReservation(reservation.id, $event)">
+        <ion-icon name="close-circle"></ion-icon>
+        Ignorer
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

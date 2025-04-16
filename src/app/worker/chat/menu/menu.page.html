@@ -1,0 +1,28 @@
+<!-- chat-list.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Recherchez dans le chat" animated></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let chat of chatList" (click)="openChat(chat)" class="chat-item">
+      <ion-avatar slot="start">
+        <img [src]="chat.avatar" alt="{{ chat.name }}">
+      </ion-avatar>
+      <ion-label>
+        <div class="chat-header">
+          <h2>{{ chat.name }}</h2>
+          <p class="time">{{ chat.time }}</p>
+        </div>
+        <p class="message">{{ chat.message }}</p>
+      </ion-label>
+      <ion-badge *ngIf="chat.unread > 0" slot="end" color="primary">{{ chat.unread }}</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <app-tab-worker></app-tab-worker>
+</ion-footer>

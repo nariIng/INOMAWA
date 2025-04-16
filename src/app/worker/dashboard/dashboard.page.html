@@ -1,0 +1,107 @@
+<ion-content>
+  <!-- Header with welcome message -->
+  <div class="welcome-header" (click)="navigateToProfile()">
+    <div class="welcome-info">
+      <div class="avatar">
+        <img [src]="plumber.avatar" alt="Profile photo">
+      </div>
+      <div class="user-info">
+        <h2>Bienvenue !</h2>
+        <p class="user-name">{{ plumber.name }}</p>
+        <div class="location">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>{{ plumber.location }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service requests -->
+  <div class="service-requests">
+    <div class="service-card" *ngFor="let request of serviceRequests; let i = index">
+      <div class="service-image">
+        <img [src]="request.image" alt="Service image">
+      </div>
+      <div class="service-details">
+        <div class="service-header">
+          <h3>{{ request.type }}</h3>
+          <span class="price">{{ request.price }}</span>
+        </div>
+        <div class="service-location">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>{{ request.location }}</span>
+        </div>
+        <div class="client-info">
+          <div class="client-avatar">
+            <img [src]="request.clientAvatar" alt="Client">
+          </div>
+          <span class="client-name">{{ request.client }}</span>
+        </div>
+        <div class="service-type">
+          <span>{{ request.serviceType }}</span>
+        </div>
+        <div class="action-buttons">
+          <ion-button fill="outline" color="danger" (click)="ignoreRequest(i)">
+            Ignorer
+          </ion-button>
+          <ion-button color="success" (click)="acceptRequest(i)">
+            Je vais arriver
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics -->
+  <div class="statistics-grid">
+    <div class="stat-card">
+      <div class="stat-value">{{ plumber.totalEarnings }}</div>
+      <div class="stat-label">Revenus mensuel</div>
+      <div class="stat-icon">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ plumber.totalServices }}</div>
+      <div class="stat-label">Total des services</div>
+      <div class="stat-icon">
+        <ion-icon name="list-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ plumber.favoriteServices }}</div>
+      <div class="stat-label">Services à favoris</div>
+      <div class="stat-icon">
+        <ion-icon name="heart-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ plumber.todayServices }}</div>
+      <div class="stat-label">Services du jour</div>
+      <div class="stat-icon">
+        <ion-icon name="calendar-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="reviews-section">
+    <h3>Avis</h3>
+    <div class="review-card" *ngFor="let review of reviews">
+      <div class="review-header">
+        <div class="reviewer-name">{{ review.name }}</div>
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+          <span>{{ review.rating }}</span>
+        </div>
+      </div>
+      <div class="review-content" *ngIf="review.comment">
+        {{ review.comment }}
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-worker></app-tab-worker>
+</ion-footer>

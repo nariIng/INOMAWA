@@ -1,0 +1,146 @@
+<!-- reservations.page.html -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Réservations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Filter -->
+  <div class="filter-container">
+    <ion-item lines="none" class="filter-item">
+      <ion-select [(ngModel)]="filterValue" interface="popover" placeholder="Select One" (ionChange)="filterList()">
+        <ion-select-option value="Tout">Tout</ion-select-option>
+        <ion-select-option value="en attente">En attente</ion-select-option>
+        <ion-select-option value="confirmé">Confirmé</ion-select-option>
+      </ion-select>
+      <ion-icon name="search-outline" slot="end"></ion-icon>
+    </ion-item>
+  </div>
+
+  <!-- Reservations -->
+  <div class="reservations-container">
+    <!-- First Reservation with detailed view -->
+    <div class="reservation-card extended">
+      <div class="reservation-header" (click)="navigateWorking(reservations[0])">
+        <h3>{{ reservations[0].serviceType }}</h3>
+        <span class="status-badge" [ngClass]="reservations[0].status.replace(' ', '-')">
+          {{ reservations[0].status }}
+        </span>
+      </div>
+
+      <div class="reservation-details" (click)="navigateWorking(reservations[0])">
+        <div class="detail-item" (click)="navigateWorking(reservations[0])">
+          <span class="label">Début à</span>
+          <span class="value">{{ reservations[0].time }}</span>
+        </div>
+        <div class="detail-item" (click)="navigateWorking(reservations[0])">
+          <span class="label">Date</span>
+          <span class="value">{{ reservations[0].date }}</span>
+        </div>
+        <div class="detail-item" (click)="navigateWorking(reservations[0])">
+          <span class="label">Fin à</span>
+          <span class="value">{{ reservations[0].time }}</span>
+        </div>
+      </div>
+
+      <div class="price-info" (click)="navigateWorking(reservations[0])">
+        {{ reservations[0].price }}
+      </div>
+
+      <div class="location-info" (click)="navigateWorking(reservations[0])">
+        <ion-icon name="location-outline"></ion-icon>
+        <span>{{ reservations[0].location }}</span>
+      </div>
+
+      <div class="service-image" (click)="navigateWorking(reservations[0])">
+        <img [src]="reservations[0].image" alt="Service image">
+      </div>
+
+      <div class="client-info" (click)="navigateWorking(reservations[0])">
+        <div class="client-avatar">
+          <img [src]="reservations[0].client.avatar" alt="Client">
+        </div>
+        <div class="client-details" (click)="navigateWorking(reservations[0])">
+          <div class="client-name">{{ reservations[0].client.name }}</div>
+          <div class="client-role">{{ reservations[0].client.role }}</div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <ion-button expand="block" color="primary" (click)="callClient(reservations[0].client)">
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+          APPELER
+        </ion-button>
+        <ion-button expand="block" fill="outline" (click)="messageClient(reservations[0].client)">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          MESSAGE
+        </ion-button>
+      </div>
+
+      <div class="secondary-buttons">
+        <ion-button fill="outline" color="danger" class="ignore-button" (click)="ignoreReservation(reservations[0].id)">
+          Ignorer
+        </ion-button>
+        <ion-button color="success" class="finish-button" (click)="finishReservation(reservations[0])">
+          Terminée
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Other reservations with compact view -->
+    <div class="reservation-card compact" *ngFor="let reservation of reservationsFiltered">
+      <div class="service-image">
+        <img [src]="reservation.image" alt="Service image">
+      </div>
+
+      <div class="reservation-content">
+        <div class="reservation-header">
+          <h3>{{ reservation.serviceType }}</h3>
+          <span class="status-badge" [ngClass]="reservation.status.replace(' ', '-')">
+            {{ reservation.status }}
+          </span>
+        </div>
+
+        <div class="price-info">
+          {{ reservation.price }}
+        </div>
+
+        <div class="location-info">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>{{ reservation.location }}</span>
+        </div>
+
+        <div class="date-time-info">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <span>{{ reservation.date }} à {{ reservation.time }}</span>
+        </div>
+
+        <div class="client-info">
+          <div class="client-avatar">
+            <img [src]="reservation.client.avatar" alt="Client">
+          </div>
+          <div class="client-details">
+            <div class="client-name">{{ reservation.client.name }}</div>
+            <div class="client-role">{{ reservation.client.role }}</div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <ion-button expand="block" color="primary" (click)="callClient(reservation.client)">
+            <ion-icon name="call-outline" slot="start"></ion-icon>
+            Appeler
+          </ion-button>
+          <ion-button expand="block" fill="outline" (click)="messageClient(reservation.client)">
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            Message
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-worker></app-tab-worker>
+</ion-footer>

@@ -1,0 +1,13 @@
+ion-tab-bar.fixed-bottom-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff; /* Fond de la barre */
+  border-top: 1px solid #ccc; /* Optionnel : ligne de séparation */
+}
+
+ion-content {
+  padding-bottom: 56px; /* Ajustez selon la hauteur de la barre */
+}

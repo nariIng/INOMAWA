@@ -1,0 +1,67 @@
+<!-- profile.page.html -->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-header">
+    <div class="profile-avatar-container">
+      <div class="profile-avatar">
+        <img [src]="user.avatar" alt="Avatar">
+        <div class="edit-button" (click)="editProfile()">
+          <ion-icon name="pencil"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.email }}</p>
+    </div>
+
+    <div class="profile-stats">
+      <div class="stats-card">
+        <div class="stats-value">{{ user.totalSpent }}</div>
+        <div class="stats-icon">
+          <ion-icon name="wallet-outline"></ion-icon>
+        </div>
+        <div class="stats-label">Total des dépenses</div>
+      </div>
+
+      <div class="stats-card">
+        <div class="stats-value">{{ user.rating }}</div>
+        <div class="stats-icon">
+          <ion-icon name="star-outline" color="warning"></ion-icon>
+        </div>
+        <div class="stats-label">Notes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-menu">
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of menuItems" detail (click)="navigateTo(item.route)">
+        <ion-icon slot="start" [name]="item.icon" color="medium"></ion-icon>
+        <ion-label>{{ item.title }}</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline" color="medium"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="logout-button-container">
+    <ion-button expand="block" fill="clear" color="primary" (click)="logout()">
+      Se déconnecter
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>

@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Résumé de la demande de service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="confirmation-container">
+    <!-- Confirmation Icon -->
+    <div class="confirmation-icon">
+      <div class="circle">
+        <ion-icon name="checkmark"></ion-icon>
+      </div>
+      <h2>Confirmé</h2>
+    </div>
+
+    <!-- Confirmation Image -->
+    <div class="confirmation-image">
+      <img src="assets/images/confirmation-request.png" alt="Service confirmation">
+    </div>
+
+    <!-- Confirmation Message -->
+    <div class="confirmation-message">
+      <p>
+        Votre réservation de service a été confirmé pour le
+        <br>
+        <strong>{{ confirmationData.date }}</strong>
+      </p>
+      <p>
+        Checkez la
+        <a (click)="goToReservationSection()">Section de réservation de service</a>
+        pour les détails
+      </p>
+    </div>
+
+    <!-- Return Button -->
+    <div class="return-button">
+      <ion-button fill="outline" (click)="returnToHome()">
+        Retour à l'accueil
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-tab-customer></app-tab-customer>
+</ion-footer>
